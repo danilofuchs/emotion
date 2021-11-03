@@ -1,5 +1,41 @@
 # @emotion/cache
 
+## 11.6.0
+
+### Minor Changes
+
+- [#2521](https://github.com/emotion-js/emotion/pull/2521) [`516fe458`](https://github.com/emotion-js/emotion/commit/516fe458058c9ec8218740472b301e935801ebbc) Thanks [@mnajdova](https://github.com/mnajdova)! - Add insertionPoint option to the EmotionCache, to insert rules after the specified element.
+
+  ```jsx
+  const head = document.querySelector('head')
+
+  // <meta name="emotion-insertion-point" content="">
+  const emotionInsertionPoint = document.createElement('meta')
+  emotionInsertionPoint.setAttribute('name', 'emotion-insertion-point')
+  emotionInsertionPoint.setAttribute('content', '')
+
+  head.appendChild(emotionInsertionPoint)
+
+  // the emotion sheets should be inserted right after the meta tag
+  const cache = createCache({
+    key: 'my-app',
+    insertionPoint: emotionInsertionPoint
+  })
+
+  function App() {
+    return (
+      <CacheProvider value={cache}>
+        <Main />
+      </CacheProvider>
+    )
+  }
+  ```
+
+### Patch Changes
+
+- Updated dependencies [[`516fe458`](https://github.com/emotion-js/emotion/commit/516fe458058c9ec8218740472b301e935801ebbc)]:
+  - @emotion/sheet@1.1.0
+
 ## 11.5.0
 
 ### Patch Changes
